@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="box" id="heading">
+        <h1>
+            <%= todaylist%>
+        </h1>
+    </div>
+
+    <div class="box2">
+        
+
+        <% for (let i=0;i<newItem.length; i++ ) { %>
+        <form action="/delete" method="post" >
+            <div class="item">
+                <input type="hidden" name="hide" value="<%= todaylist%>">
+                <input  type="checkbox" " id="check"  name="checkbox"    value= "<%= newItem[i]._id%>"  onchange="this.form.submit()">
+                
+                
+                <label for="check"><%= newItem[i].name%></label>
+
+            </div>
+        </form> 
+
+            <% } %>
+
+                <form action="/" method="post" class="form1">
+                    <input type="text" name="item" placeholder="New Item" >
+                    <button type="submit" name="list" value="<%= todaylist%>">+</button>
+                </form>
+
+
+
+    </div>
+
+
+</body>
+
+</html>
